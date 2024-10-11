@@ -102,7 +102,7 @@ export default function Invite() {
           <button
             className="double-text-button green-button full-button"
             onClick={() => {
-              var text = `Play Versus Bee with me: `+friendLink;
+              var text = `Play Spelling Beat with me: `+friendLink;
 
             
 

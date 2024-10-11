@@ -69,7 +69,7 @@ export default function StatsMenu() {
             <IoMdClose size={24} />
           </a>
           <div className="stats-block__header popupOver__header">
-            <h5>STRANDS VERSUS STATS</h5>
+            <h5>STATISTICS</h5>
           </div>
           <ul className="stats-block__list">
             <li>
@@ -111,26 +111,20 @@ export default function StatsMenu() {
           <button
             onClick={() => {
               var text =
-                `My stats in Versus Bee. Can you beat it? https://multibee.org/\nGames - ` +
-                (statsData.wins + statsData.losses + statsData.draws) +
-                `\nWins - ` +
-                statsData.wins +
-                `\nDraws - ` +
-                statsData.draws +
-                `\nLosses - ` +
-                statsData.losses +
-                `\n% of Wins - ` +
-                (statsData.wins + statsData.losses > 0
+                `My stats in Spelling Beat. Can you beat it? https://spellingbeat.org/
+                \n
+                Games - ${(statsData.wins + statsData.losses + statsData.draws)}
+                \nWins - ${statsData.wins}
+                \nDraws - ${statsData.draws}
+                \nLosses - ${statsData.losses}
+                \n% of Wins - ${(statsData.wins + statsData.losses > 0
                   ? Math.floor(
                       (statsData.wins / (statsData.losses + statsData.wins)) *
                         100
                     )
-                  : 0) +
-                `%\nWords - ` +
-                statsData.words +
-                `\nPoints - ` +
-                statsData.points +
-                `\n`;
+                  : 0)} %
+                \nWords - ${statsData.words}
+                \nPoints - ${statsData.points}`
 
               if (navigator.share && isMobile) {
                 navigator.share({

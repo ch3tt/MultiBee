@@ -28,7 +28,8 @@ import { isMobile } from "react-device-detect";
 import useWebShare from "react-use-web-share";
 
 export default function Result() {
-  const [guessedWords] = useAtom(guessedWordsAtom);
+  const [redWords] = useAtom(redWordsAtom);
+  const [blueWords] = useAtom(blueWordsAtom);
   const [isGenerated, setGenerated] = useState(false);
   useEffect(() => {
     if (!isGenerated) setGenerated([Math.random(), Math.random()]);
@@ -39,6 +40,12 @@ export default function Result() {
       <img src={"/lose/" + (1 + Math.floor(isGenerated[user] * 23)) + ".png"} />
     );
   };
+  const getBlueScore = () => {
+    return blueWords.length;
+  }
+  const getRedScore = () => {
+    return redWords.length;
+   }
   const WinEmoji = ({ user }) => {
     return (
       <img src={"/win/" + (1 + Math.floor(isGenerated[user] * 22)) + ".png"} />
@@ -97,8 +104,6 @@ export default function Result() {
   const [redTopicWords, sedRedTopicWords] = useAtom(redTopicWordsAtom);
   const [shareText, setShareText] = useAtom(shareTextAtom);
   const [isSharing, setSharing] = useAtom(isSharingAtom);
-  const [blueWords, setBlueWords] = useAtom(blueWordsAtom);
-  const [redWords, sedRedWords] = useAtom(redWordsAtom);
   const [username, setUsername] = useAtom(usernameAtom);
   const [win, setWin] = useState(
     blueScore > redScore ? "win" : redScore > blueScore ? "lose" : "tie"
@@ -240,14 +245,12 @@ export default function Result() {
                 gameLetterString += "\n";
               }
               var text =
-                `I beat my opponent in Versus Bee!\n\n` +
-                `I made ` +
-                guessedWords.filter((el) => el.team == "blue").length +
-                ` and my opponent made ` +
-                guessedWords.filter((el) => el.team == "red").length +
-                ` words from letters ` +
-                gameLetterString.toUpperCase() +
-                `\nCan you find more? - https://multibee.org/
+                `I beat my opponent in Spelling Beat!
+                \n
+                \n
+                I made ${getBlueScore()} and my opponent made
+                ${getRedScore()} words from letters ${gameLetterString.toUpperCase()}\n
+                Can you find more? - https://spellingbeat.org/
                 `;
 
               if (isSupported && isMobile) {

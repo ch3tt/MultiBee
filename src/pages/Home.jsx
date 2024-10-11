@@ -22,7 +22,7 @@ import { socket } from "../main";
 
 export const isRematchScreenAtom = atom(false);
 export const gameStatusAtom = atom("lobby");
-export const webSiteShareUrl = "https://multibee.org/";
+export const webSiteShareUrl = "https://spellingbeat.org/";
 export const gameEndTimeAtom = atom(0);
 export const gameLettersAtom = atom("ABCDEFG");
 export const firstPlayerAtom = atom("");
@@ -135,7 +135,6 @@ socket.on ('close',()=> console.log('close'));
       setRedScore(data.oppScore);
       setBlueWords(data.ownWords);
       setRedWords(data.oppWords);
-      setGuessedWords();
       socket.emit("confirmation", {
         token: data.returnToken,
       });
@@ -168,7 +167,9 @@ socket.on ('close',()=> console.log('close'));
       setGameLetters(data.letters.toUpperCase());
       setGameEndTime(Math.floor(new Date() / 1000) + 3 + data.duration);
       setSecondsBefore(3);
-
+      setGuessedWords();
+      setRedWords();
+      setBlueWords();
       setSeconds(data.duration);
       setFirstPlayerName(data.ownName);
       setSecondPlayerName(data.oppName);
@@ -324,17 +325,11 @@ socket.on ('close',()=> console.log('close'));
               )}
               <h4>Spelling Bee multiplayer</h4>
               <p>
-                You will be given a set of 7 letters. Form words by clicking on
-                the letters in sequence. You need to find words consisting of 4
-                or more letters. Each word must contain the central letter at
-                least once. <br /> <br />
-                You need to find as many words as possible in 3 minutes and
-                score more points than your opponent. You earn as many points as
-                there are letters in the words you find. Words found by your
-                opponent earlier will not be counted for you. In each game,
-                there is at least one Pangram - a word containing every letter
-                from the grid at least once - for which you will receive a bonus
-                of 10 points.
+              SpellingBeat is a head-to-head version of the Spelling Bee game.
+<br /><br />
+You have to find as many words as possible in 3 minutes and score more points than your opponent. Each word in the game can only be found once, either by you or your opponent. For each word, you earn as many points as there are letters in it. Each game has at least one pangram, and for it you will receive a bonus of 10 extra points.
+<br /><br />
+Can you beat your opponent?
               </p>
 
               <div className="nickname-block">

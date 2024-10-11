@@ -21,7 +21,7 @@ export const openShareLink = (link, title, msg, to) => {
     window.open(`https://www.facebook.com/share.php?u=${link}`, "_blank");
   if (to === "twitter")
     window.open(
-      `http://twitter.com/share?url=${link}&text=${msg}&hashtags={}`,
+      `http://x.com/share?url=${link}&text=${msg}&hashtags={}`,
       "_blank"
     );
   if (to === "reddit")

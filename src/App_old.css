@@ -51,7 +51,7 @@ button {
 }
 .div.dark-theme-on {
   --hex: #464236;
-  --yellow: #685828;
+  --yellow: #ffcc65;
   --bg: #161513;
   --old-gray: #262421;
   --primary: #f6f7f8;
@@ -60,7 +60,7 @@ button {
   --buttonGrayBorder: #333649;
 }
 .div.dark-theme-on .lime-button {
-  background: #685828;
+  background: #c59e2f;
   border-color: #fff;
 }
 
@@ -243,7 +243,7 @@ button {
   margin-bottom: 12px;
 }
 .main-block p {
-  font-weight: 400;
+  font-weight: 800;
 }
 
 .buttons-block {
@@ -265,8 +265,6 @@ button {
   justify-content: center;
   border-radius: 6px;
   align-items: center;
-  border:2px solid var(--primary);
-  border-radius: 20px
 }
 .double-text-button:active {
   border-bottom: 0;
@@ -278,14 +276,14 @@ button {
 .double-text-button.full-button {
   font-size: 16px;
   text-transform: uppercase;
-  color: #000;
-  font-weight: 900;
+  color: white;
+  font-weight: 700;
   width: 200px;
 }
 .double-text-button p {
-  color: #000;
+  color: white;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .full-button {
@@ -293,15 +291,18 @@ button {
 }
 
 .green-button {
-  background: #88eb83
+  background: #47bf41;
+  border-bottom: 4px solid #32992d;
 }
 
 .red-button {
-  background: #f23865
+  background: #f23865;
+  border-bottom: 4px solid #bb3d5d;
 }
 
 .blue-button {
-  background: #99c6ff
+  background: #4673d9;
+  border-bottom: 4px solid #2a50a9;
 }
 
 .search-block {
@@ -351,13 +352,13 @@ button {
   font-size: 15px;
   background: var(--buttonGray);
   font-weight: 400;
-  border: 2px solid var(--primary)
+  border-bottom: 3px solid var(--buttonGrayBorder);
 }
 .cancel-button.selected,
 .invite-block > div button.selected {
   color: white;
-  background: #88eb83;
-  border-color: #13720f;
+  background: #47bf41;
+  border-color: #32992d;
 }
 .cancel-button:active,
 .invite-block > div button:active {
@@ -379,7 +380,7 @@ button {
   color: var(--primary);
   background: var(--gray);
   border: 0;
-  width: 30;
+  width: 230px;
   font-size: 16px;
   padding: 15px 10px;
   border-radius: 6px;
